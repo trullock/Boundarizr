@@ -1,6 +1,13 @@
 # Boundarizr
 
-** Please note: this is a beta, any feedback is welcome! **
+**Please note: this is a beta, any feedback is welcome!**
+
+# Demo
+
+If you're like me, you probably love a good demo. Well, since I don't have one
+of _those_ you'll have to make do with this: [http://paullewis.github.io/boundarizr](an adequate demo of Boundarizr).
+
+# Right, but what's the deal?
 
 Layout boundaries are able to limit the root and scope of Chrome's layout
 operations. This is a small library that highlights elements that can act as
@@ -18,8 +25,9 @@ or:
 * The element does not have an implicit or `auto` width value.
 * The element has an explicit overflow value (`scroll`, `auto` or `hidden`).
 * The element is not a descendant of a `<table>` element.
+* The element is not set to display `inline` or `inline-block`.
 
-Boundarizr makes use of `window.getMatchedCSSRules()` to determine what was applied to the elements in the DOM. As such, and in given that the rules for layout boundaries are implementation-specific, you should assume this will only work for Chrome.
+Boundarizr makes use of `window.getMatchedCSSRules()` to determine what was applied to the elements in the DOM. As such, and in given that the rules for layout boundaries are implementation-specific, you should assume this will _only work for Chrome_.
 
 ## Usage
 
@@ -46,6 +54,7 @@ And you can call individual tests against elements if you like:
 * `.tests.hasEmptyOrAutoWidth(elm)`
 * `.tests.isNotOverflow(elm)`
 * `.tests.isDescendantOfTable(elm)`
+* `.tests.isDisplayInlineOrInlineBlock(elm)`
 
 ## Tests
 
