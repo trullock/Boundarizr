@@ -84,6 +84,18 @@ test("Height is not empty or auto", function() {
   ok(!Boundarizr.tests.isBoundary(elementAuto));
 });
 
+test("Display is not inline", function() {
+  var element = makeElement('div', { display: 'inline' });
+  ok(Boundarizr.tests.isDisplayInlineOrInlineBlock(element));
+  ok(!Boundarizr.tests.isBoundary(element));
+});
+
+test("Display is not inline-block", function() {
+  var element = makeElement('div', { display: 'inline-block' });
+  ok(Boundarizr.tests.isDisplayInlineOrInlineBlock(element));
+  ok(!Boundarizr.tests.isBoundary(element));
+});
+
 test("Element has overflow property set", function() {
   var elementAuto = makeElement('div', { overflow: 'auto' });
   var elementScroll = makeElement('div', { overflow: 'auto' });

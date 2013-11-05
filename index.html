@@ -12,6 +12,13 @@
     html, body {
       padding: 0;
       margin: 0;
+      line-height: 1.34;
+    }
+
+    h1 {
+      font-weight: 100;
+      color: #444;
+      letter-spacing: 1px;
     }
 
     #container {
@@ -19,11 +26,20 @@
       height: 100%;
     }
 
-    #innercontainer {
+    #intro {
+      width: 300px;
+      position: absolute;
       left: 20px;
+      top: 20px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #888;
+    }
+
+    #innercontainer {
+      left: 360px;
       top: 40px;
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
       overflow: hidden;
       border: 1px solid red;
       position: absolute;
@@ -40,6 +56,20 @@
   </style>
 </head>
 <body>
+
+  <div id="intro">
+    <h1>Boundarizr</h1>
+    <p>Boundarizr checks the styles of your elements to see if they can act
+      as layout boundaries. The idea is to allow you to quickly check if you
+      have more control over the degree of layout invalidations in your projects.
+    </p>
+    <p>The box to the right is inside a div that satisfies the criteria for
+      a layout boundary, and Boundarizr marks it with a blue box. If you were to check
+      Timeline in Chrome DevTools you will see layout operations scoped to #innercontainer.
+    </p>
+    <p>For more info read Wilson Page's intro to layout boundaries.</p>
+  </div>
+
   <div id="container">
     <div id="innercontainer">
       <div id="box"></div>
@@ -53,9 +83,8 @@
 
     function update() {
 
-
-      box.style.top = (100 + Math.sin(time) * 40) + 'px';
-      box.style.left = (100 + Math.cos(time) * 40) + 'px';
+      box.style.top = (150 + Math.sin(time) * 100) + 'px';
+      box.style.left = (150 + Math.cos(time) * 100) + 'px';
 
       time += 0.01;
       webkitRequestAnimationFrame(update);

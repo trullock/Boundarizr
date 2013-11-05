@@ -77,6 +77,9 @@ window.Boundarizr = (function() {
     if (isDescendantOfTable(element))
       return false;
 
+    if (isDisplayInlineOrInlineBlock(element))
+      return false;
+
     return true;
   }
 
@@ -157,6 +160,15 @@ window.Boundarizr = (function() {
 
     return appliedRule !== 'scroll' && appliedRule !== 'auto' &&
         appliedRule !== 'hidden';
+  }
+
+  function isDisplayInlineOrInlineBlock(element) {
+    var appliedRule = getMatchedRuleOn(element, 'display');
+
+    if (appliedRule === null)
+      return false;
+
+    return appliedRule === 'inline' || appliedRule === 'inline-block';
   }
 
   function isDescendantOfTable(element) {
@@ -265,7 +277,8 @@ window.Boundarizr = (function() {
       hasEmptyOrAutoHeight: hasEmptyOrAutoHeight,
       hasEmptyOrAutoWidth: hasEmptyOrAutoWidth,
       isNotOverflow: isNotOverflow,
-      isDescendantOfTable: isDescendantOfTable
+      isDescendantOfTable: isDescendantOfTable,
+      isDisplayInlineOrInlineBlock: isDisplayInlineOrInlineBlock
     }
   };
 
