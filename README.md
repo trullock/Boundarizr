@@ -5,7 +5,7 @@
 # Demo
 
 If you're like me, you probably love a good demo. Well, since I don't have one
-of _those_ you'll have to make do with this: [http://paullewis.github.io/boundarizr](an adequate demo of Boundarizr).
+of _those_ you'll have to make do with this: [an adequate demo of Boundarizr](http://paullewis.github.io/boundarizr).
 
 # Right, but what's the deal?
 
