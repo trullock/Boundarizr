@@ -4,7 +4,6 @@ if (window.Boundarizr)
 window.Boundarizr = (function() {
 
   var boundaryContainerElement = null;
-  var boundaryHideButton = null;
   var elements = null;
   var boundaries = [];
 
@@ -197,18 +196,10 @@ window.Boundarizr = (function() {
 
       boundaryContainerElement.style.display = 'none';
 
-      boundaryHideButton = document.createElement('button');
-      boundaryHideButton.style.position = 'fixed';
-      boundaryHideButton.style.top = '10px';
-      boundaryHideButton.style.left = '10px';
-      boundaryHideButton.textContent = 'Hide Boundaries';
-      boundaryHideButton.addEventListener('click', hideBoundaries);
-
       document.body.appendChild(boundaryContainerElement);
     }
 
     boundaryContainerElement.innerHTML = '';
-    boundaryContainerElement.appendChild(boundaryHideButton);
 
     var boundary, boundaryElement;
     for (var b = 0; b < boundaries.length; b++) {
