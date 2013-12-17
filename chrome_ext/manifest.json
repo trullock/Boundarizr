@@ -10,6 +10,6 @@
   "background": { "scripts": ["background.js"] },
   "content_scripts" : [{
         "matches" : [ "*://*/*" ],
-        "js" : ["myScript.js", "boundarizr.js"]
+        "js" : ["ext.js", "boundarizr.js"]
     }]
 }
