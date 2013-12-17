@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Boundarizer",
+  "description": "Highlights layout boundaries in your page",
+  "version": "1.0",
+  "permissions": ["tabs", "http://*/*"],
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "background": { "scripts": ["background.js"] },
+  "content_scripts" : [{
+        "matches" : [ "*://*/*" ],
+        "js" : ["myScript.js", "boundarizr.js"]
+    }]
+}
