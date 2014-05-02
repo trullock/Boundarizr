@@ -37,6 +37,9 @@ window.Boundarizr = (function() {
             if (element.id)
               boundary.label += '#' + element.id;
 
+            if (element.className)
+              boundary.label += '.' + element.className.split(' ').join('.');
+
             boundaries.push(boundary);
           }
           break;
