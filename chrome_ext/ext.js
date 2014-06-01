@@ -1,6 +1,13 @@
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-	if (request.action == "on")
+	if (request.active)
 		window.Boundarizr.testCurrentDocument();
-	 else if(request.action == "off")
-		window.Boundarizr.hideBoundaries();
+	 else
+		window.Boundarizr.removeBoundaries();
 });
+
+window.addEventListener("resize", function(){
+	// TODO: debounce
+	window.Boundarizr.removeBoundaries();
+	window.Boundarizr.testCurrentDocument();
+},false);

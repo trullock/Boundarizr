@@ -4,6 +4,7 @@ if (window.Boundarizr)
 window.Boundarizr = (function() {
 
   var boundaryContainerElement = null;
+  var boundaryHideButton = null;
   var elements = null;
   var boundaries = [];
 
@@ -35,6 +36,9 @@ window.Boundarizr = (function() {
 
             if (element.id)
               boundary.label += '#' + element.id;
+
+            if (element.className && typeof element.classNme == 'String')
+              boundary.label += '.' + element.className.split(' ').join('.');
 
             boundaries.push(boundary);
           }
@@ -193,6 +197,7 @@ window.Boundarizr = (function() {
       boundaryContainerElement.style.bottom = '0';
       boundaryContainerElement.style.left = '0';
       boundaryContainerElement.style.zIndex = '10000000';
+	  boundaryContainerElement.style.pointerEvents = 'none';
 
       boundaryContainerElement.style.display = 'none';
 
@@ -206,6 +211,9 @@ window.Boundarizr = (function() {
 
       boundary = boundaries[b];
 
+	  if(boundary.width == 0 || boundary.height == 0)
+		continue;
+	  
       boundaryElement = document.createElement('div');
       boundaryElement.style.position = 'absolute';
       boundaryElement.style.display = 'block';
@@ -229,7 +237,8 @@ window.Boundarizr = (function() {
 
       // Content.
       boundaryElement.textContent = boundary.label;
-
+	  boundaryElement.style.pointerEvents = 'none';
+	  
       boundaryContainerElement.appendChild(boundaryElement);
     }
   }
@@ -248,10 +257,15 @@ window.Boundarizr = (function() {
     showBoundaries();
   }
 
-  function kill() {
-    if (boundaryContainerElement) {
+  function removeBoundaries() {
+   if (boundaryContainerElement) {
       boundaryContainerElement.parentNode.removeChild(boundaryContainerElement);
+	  boundaryContainerElement = null;
     }
+  }
+  
+  function kill() {
+	removeBoundaries();
     window.Boundarizr = null;
   }
 
@@ -259,6 +273,7 @@ window.Boundarizr = (function() {
     testCurrentDocument: testCurrentDocument,
     showBoundaries: showBoundaries,
     hideBoundaries: hideBoundaries,
+	removeBoundaries: removeBoundaries,
     kill: kill,
     tests: {
       isBoundary: isBoundary,
