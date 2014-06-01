@@ -31,9 +31,9 @@ Boundarizr makes use of `window.getMatchedCSSRules()` to determine what was appl
 
 ## Usage
 
-You can find a bookmarklet at `/bookmarklet.html` - just drag that to your
-bookmarks in Chrome. You can include `/js/boundarizr.js` (or .min.js if you
-prefer) and call `Boundarizr.testCurrentDocument()`.
+You can find a bookmarklet link on this page `/bookmarklet.html` in this repo - just drag that to your
+bookmarks in Chrome.
+You can include `/js/boundarizr.js` (or .min.js if you prefer) and call `Boundarizr.testCurrentDocument()`.
 
 ## API
 
