@@ -16,7 +16,7 @@ chrome.browserAction.onClicked.addListener(function(){
 // Sets the state of the icon
 function setIconState(active){
 	chrome.browserAction.setIcon({
-		path: active ? 'icon-on.png' : 'icon-off.png'
+		path: active ? 'icon_on_48.png' : 'icon_off_48.png'
 	});
 	chrome.browserAction.setTitle({
 		title: active ? 'Turn Off Boundarizer' : 'Turn On Boundarizer'
