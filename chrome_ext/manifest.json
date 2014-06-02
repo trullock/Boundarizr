@@ -7,7 +7,7 @@
 	"48": "icon_off_48.png",
 	"128": "icon_off_128.png"
   },
-  "version": "1.0",
+  "version": "0.1",
   "permissions": ["tabs", "http://*/*"],
   "browser_action": {
     "default_icon": "icon_off_48.png"
